@@ -1,314 +1,118 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INGLESZINHO OFC - Meu Site Oficial</title>
-    <!-- Carregando Tailwind CSS para estilização moderna e responsiva -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <meta http-equiv="refresh" content="4;url=https://YOUR_FINAL_LINK_HERE">
+    
+    <title>LOADING PEAK CONTENT...</title>
+    
     <style>
-        /* Configuração de Fonte Global (Inter para modernidade) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* 2009 Aesthetic Reset */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Cor de fundo Dark Mode (quase preto) */
-            color: #ffffff;
-        }
-        /* Estilo para Botões e Links de Destaque */
-        .btn-primary {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #cc0000, #ff0000); /* Vermelho do YouTube */
-        }
-        .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-        }
-        /* Estilo para as caixas de informação e projetos */
-        .info-card {
-            background-color: #1a1e26;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #2d333b;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-        }
-        /* Estilos para a animação de transição de conteúdo (efeito "fade") */
-        .content-section {
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        /* ESTILOS DE ANIMAÇÃO DO HAMBÚRGUER */
-        #menu-toggle {
-            /* Definindo o tamanho do container do ícone */
-            width: 32px;
-            height: 32px;
+            background-color: #000000;
+            color: #0080ff;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            padding: 4px; /* Aumenta a área de toque */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
         }
 
-        .line {
-            display: block;
-            height: 3px;
+        /* The HyperCam Watermark */
+        .hypercam {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            color: black;
+            font-size: clamp(10px, 2vw, 14px);
+            padding: 2px 8px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            border: 1px solid black;
+            z-index: 999;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            padding: 0 20px;
+        }
+
+        /* Modern Loading Bar with 2009 Colors */
+        .loading-container {
+            width: 80%;
+            max-width: 400px;
+            height: 25px;
+            border: 2px solid #0080ff;
+            margin: 20px auto;
+            background: #111;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #0080ff;
+            animation: load 4s linear forwards;
+        }
+
+        @keyframes load {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* The "Click Here" fallback link */
+        a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        marquee {
+            position: fixed;
+            bottom: 20px;
             width: 100%;
-            background: #ffffff;
-            border-radius: 9px;
-            opacity: 1;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out; /* Transição suave */
+            font-size: 1.2rem;
+            color: #ff0000;
         }
 
-        /* Estado "OPEN" do Menu (Transforma em "X") */
-        #menu-toggle.open .line:nth-child(1) {
-            transform: translateY(10px) rotate(45deg); /* Move para baixo e rotaciona */
+        /* Windows Movie Maker Style Footer */
+        .footer {
+            font-size: 10px;
+            color: #444;
+            margin-top: 20px;
         }
-
-        #menu-toggle.open .line:nth-child(2) {
-            opacity: 0; /* Desaparece a linha do meio */
-            transform: translateX(-100%);
-        }
-
-        #menu-toggle.open .line:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg); /* Move para cima e rotaciona */
-        }
-        /* FIM DOS ESTILOS DE ANIMAÇÃO DO HAMBÚRGUER */
-
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <div class="max-w-4xl mx-auto p-4 md:p-8 flex flex-col items-center justify-center min-h-screen">
+    <div class="hypercam">Unregistered HyperCam 2</div>
 
-        <!-- NAV/MENU WRAPPER: Fica fixo no topo da área de conteúdo -->
-        <div class="w-full max-w-md relative mb-12">
-            
-            <!-- Botão do Menu Hambúrguer (Posicionado top-0 left-0) -->
-            <!-- Adicionamos as 3 linhas (spans) para a animação -->
-            <button id="menu-toggle" class="absolute top-0 left-0 text-gray-300 hover:text-pink-500 focus:outline-none z-30">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-
-            <!-- Menu Colapsável (Posicionado top-10 left-0) -->
-            <nav id="mobile-menu" class="hidden absolute top-10 left-0 w-48 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 p-2 z-20">
-                <!-- Data-target usado para a função JavaScript saber qual seção mostrar -->
-                <a href="#" data-target="#section-home" class="nav-link block py-2 px-3 text-lg font-medium text-white hover:bg-gray-700 rounded-lg">
-                    🏠 Início
-                </a>
-                <a href="#" data-target="#section-faco" class="nav-link block py-2 px-3 text-lg font-medium text-white hover:bg-gray-700 rounded-lg">
-                    🤔 O Que Eu Faço?
-                </a>
-                <a href="#" data-target="#section-projetos" class="nav-link block py-2 px-3 text-lg font-medium text-white hover:bg-gray-700 rounded-lg">
-                    🚀 Projetos
-                </a>
-                <a href="https://instagram.com/ingleszinho_ofc" target="_blank" class="block py-2 px-3 text-lg font-medium text-pink-500 hover:bg-gray-700 rounded-lg">
-                    📸 Instagram
-                </a>
-                <!-- NOVO LINK DO YOUTUBE: @xlaysplays -->
-                <a href="https://youtube.com/@xlaysplays" target="_blank" class="block py-2 px-3 text-lg font-medium text-red-500 hover:bg-gray-700 rounded-lg border-t border-gray-700 mt-1 pt-2">
-                    ▶️ YouTube
-                </a>
-            </nav>
-
-            <!-- O título é um link clicável para voltar ao início -->
-            <div class="text-center w-full">
-                <a href="#" id="main-title-link" data-target="#section-home" class="cursor-pointer">
-                    <!-- Avatar do Perfil -->
-                    <div class="w-24 h-24 mx-auto mb-4 rounded-full border-4 border-pink-500 overflow-hidden">
-                        <img src="image_8eb636.jpg" 
-                             alt="Foto de perfil de Ingleszinho OFC (Avatar Anime)" 
-                             class="w-full h-full object-cover"
-                             onerror="this.onerror=null; this.src='https://placehold.co/150x150/505050/ffffff?text=Erro+PFP';">
-                    </div>
-                    <h1 class="text-4xl font-extrabold text-white mb-2">
-                        <span class="text-pink-500">INGLESZINHO</span>_OFC
-                    </h1>
-                </a>
-                <p class="text-xl font-semibold text-gray-300 mb-6">@ingleszinho_ofc | João Paulo Schulz Gehring</p>
-            </div>
-        </div>
-        
-        <!-- CONTAINER QUE MANTÉM APENAS UMA SEÇÃO VISÍVEL POR VEZ -->
-        <div id="content-area" class="w-full max-w-md">
-
-            <!-- SEÇÃO 1: HOME/BIO (Visível por padrão) -->
-            <section id="section-home" class="content-section opacity-100">
-                <!-- BIO CURTA E INFORMATIVA -->
-                <div class="bg-gray-800 p-4 rounded-xl border border-gray-700">
-                    <p class="text-lg text-gray-300">
-                        👋 11 anos • Registro momentos e crio conteúdo de jogos e aventuras.
-                    </p>
-                </div>
-            </section>
-        
-            <!-- SEÇÃO 2: O QUE EU FAÇO? (Invisível por padrão) -->
-            <section id="section-faco" class="content-section hidden opacity-0">
-                <h2 class="text-2xl font-bold text-white mb-4 text-center border-b border-gray-700 pb-2">
-                    🎮 O Que Eu Faço?
-                </h2>
-                <div class="info-card space-y-4">
-                    <h3 class="text-xl font-semibold text-blue-400">Conteúdo de Jogos</h3>
-                    <p class="text-gray-300">
-                        Sou apaixonado por games e crio vídeos e lives dos meus jogos favoritos. Adoro compartilhar minhas estratégias e, claro, meus momentos de *Booyah!* em Free Fire e outras aventuras em Roblox.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold text-pink-400">Aventuras e Viagens</h3>
-                    <p class="text-gray-300">
-                        Sempre que viajo ou descubro algo novo com minha família, registro tudo! Você encontrará no meu Instagram vídeos das minhas férias e das minhas descobertas, seja na praia ou em casa.
-                    </p>
-                    
-                    <h3 class="text-xl font-semibold text-yellow-400">Diversão e Vlogs</h3>
-                    <p class="text-gray-300">
-                        Meu objetivo é sempre trazer alegria e bom humor! Faço pequenos vlogs e desafios que mostram o meu dia a dia de um jeito divertido e descontraído.
-                    </p>
-                </div>
-            </section>
-
-            <!-- SEÇÃO 3: PROJETOS (Invisível por padrão) -->
-            <section id="section-projetos" class="content-section hidden opacity-0">
-                <h2 class="text-2xl font-bold text-white mb-4 text-center border-b border-gray-700 pb-2">
-                    🚀 Meus Projetos
-                </h2>
-                
-                <!-- CARD: O que é Jogo Assimétrico? (Explicação) -->
-                <div class="info-card space-y-4 mb-6 border-pink-500 border-2">
-                    <h3 class="text-xl font-semibold text-pink-400">O que é um Jogo Assimétrico?</h3>
-                    <p class="text-gray-300">
-                        É um tipo de jogo multiplayer onde os jogadores têm **objetivos, habilidades e até mesmo jogabilidades totalmente diferentes** uns dos outros.
-                        <br><br>
-                        *Exemplo:* Um lado pode ser um monstro poderoso que caça, e o outro, quatro sobreviventes mais fracos que precisam trabalhar em equipe para fugir. É o que torna o seu jogo único!
-                    </p>
-                </div>
-                
-                <!-- CARD: [ALPHA] Renmant -->
-                <div class="info-card space-y-4 mb-6">
-                    <h3 class="text-xl font-semibold text-purple-400">[ALPHA] Renmant (Em Desenvolvimento)</h3>
-                    <p class="text-gray-300">
-                        Estou criando um jogo assimétrico e original! O projeto está em fase Alpha e envolve design de níveis, mecânicas de jogo complexas e programação. É meu principal foco atualmente.
-                        <br><br>
-                        <span class="text-xs text-red-400 italic">🤫 Dica: Há conteúdos exclusivos e até 'leaks' do jogo no meu canal @xlaysplays!</span>
-                    </p>
-                </div>
-
-                <!-- CARD: Outros Projetos -->
-                <div class="info-card space-y-4">
-                    <h3 class="text-xl font-semibold text-yellow-400">Website Oficial (Este aqui!)</h3>
-                    <p class="text-gray-300">
-                        Meu primeiro projeto de código, feito para centralizar todos os meus links e informações de uma forma simples e moderna.
-                    </p>
-                    <h3 class="text-xl font-semibold text-blue-400">Vlogs de Viagem</h3>
-                    <p class="text-gray-300">
-                        Planejamento e gravação de mini-vlogs das minhas viagens de família, com foco em edição rápida e trilhas sonoras animadas.
-                    </p>
-                </div>
-            </section>
-        </div>
-
-
-        <!-- LINK PRINCIPAL: Botão de Ação Destacado (FOCANDO NO YOUTUBE @xlaysplays) -->
-        <section class="mb-8 w-full max-w-md mt-6">
-            <a href="https://youtube.com/@xlaysplays" target="_blank" class="block w-full text-center py-4 rounded-xl btn-primary font-bold text-lg uppercase tracking-wider shadow-lg">
-                ▶️ Assista Meus Vídeos no YouTube (@xlaysplays)
-            </a>
-        </section>
-        
-        <!-- Link Secundário para Instagram -->
-        <section class="mb-8 w-full max-w-md -mt-4">
-            <a href="https://instagram.com/ingleszinho_ofc" target="_blank" class="block w-full text-center py-3 rounded-xl bg-gray-700 text-gray-200 hover:bg-gray-600 transition font-medium text-md uppercase tracking-wider shadow-lg">
-                📸 Ver Posts no Instagram
-            </a>
-        </section>
-
-
-        <!-- Rodapé SIMPLIFICADO -->
-        <footer class="text-center pt-8 w-full max-w-sm">
-            <p class="text-sm text-gray-600">
-                Copyright © 2025 INGLESZINHO OFC.
-            </p>
-        </footer>
-
+    <h1>[ XLAYSPLAYS ]</h1>
+    
+    <p>Loading peak edition content...<br>
+       If you are not redirected, <a href="https://YOUR_FINAL_LINK_HERE">CLICK HERE</a>!
+    </p>
+    
+    <div class="loading-container">
+        <div class="progress-bar"></div>
     </div>
 
-    <!-- Script para funcionalidade do menu e troca de seção -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleButton = document.getElementById('menu-toggle');
-            const menu = document.getElementById('mobile-menu');
-            
-            // Mapeamento de todas as seções por ID
-            const sections = {
-                '#section-home': document.getElementById('section-home'),
-                '#section-faco': document.getElementById('section-faco'),
-                '#section-projetos': document.getElementById('section-projetos')
-            };
+    <marquee>BUFFFERING... THIRTY DOLLAR WEBSITE... OLD ROBLOX 2009... TS SO PEAK...</marquee>
 
-            // Função principal para alternar a visibilidade das seções
-            function showSection(targetId) {
-                // 1. Esconde o menu
-                menu.classList.add('hidden');
-                toggleButton.classList.remove('open'); // Fecha o menu (remove animação 'X')
-                
-                // 2. Itera sobre todas as seções para controlar a visibilidade e a transição
-                for (const id in sections) {
-                    const section = sections[id];
-                    
-                    // Garante que o elemento existe antes de tentar manipulá-lo
-                    if (!section) continue;
+    <div class="footer">
+        PROJECT PROCESSED BY WINDOWS MOVIE MAKER 2.6
+    </div>
 
-                    if (id === targetId) {
-                        // Mostra a seção alvo com transição de opacidade
-                        section.classList.remove('hidden');
-                        // Um pequeno delay garante que o navegador reconheça a remoção do 'hidden' antes de aplicar a transição
-                        setTimeout(() => {
-                            section.classList.remove('opacity-0');
-                            section.classList.add('opacity-100');
-                        }, 10); 
-                    } else {
-                        // Esconde as outras seções
-                        section.classList.remove('opacity-100');
-                        section.classList.add('opacity-0');
-                        // Adiciona 'hidden' após a transição de opacidade terminar (0.5s)
-                        setTimeout(() => {
-                            section.classList.add('hidden');
-                        }, 500); 
-                    }
-                }
-            }
-            
-            // Configura o toggle do menu hambúrguer
-            toggleButton.addEventListener('click', (e) => {
-                e.stopPropagation(); // Evita que o click no botão feche o menu imediatamente
-                menu.classList.toggle('hidden');
-                toggleButton.classList.toggle('open'); // Adiciona/remove a classe para a animação
-            });
-            
-            // Configura os links do menu e do título principal para trocar as seções
-            document.querySelectorAll('.nav-link, #main-title-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault(); 
-                    const target = link.getAttribute('data-target');
-                    if (target) {
-                        showSection(target);
-                    }
-                });
-            });
-
-            
-            // Fechar o menu se clicar fora
-            document.addEventListener('click', (event) => {
-                const isClickInside = menu.contains(event.target) || toggleButton.contains(event.target) || document.getElementById('main-title-link').contains(event.target);
-                if (!isClickInside && !menu.classList.contains('hidden')) {
-                    menu.classList.add('hidden');
-                    toggleButton.classList.remove('open'); // Remove a animação 'X' ao fechar
-                }
-            });
-            
-            // Inicialização: Garante que apenas a HOME está visível ao carregar
-            showSection('#section-home');
-        });
-    </script>
 </body>
 </html>
